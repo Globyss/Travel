@@ -345,7 +345,8 @@ body {
       padding: 19px 0 0 0; } }
 
 .destinations__block {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .destinations__row {
   display: -webkit-box;
@@ -358,8 +359,7 @@ body {
   margin: 46px 0 0 0;
   -webkit-transition: all 1s;
   -o-transition: all 1s;
-  transition: all 1s;
-  overflow: hidden; }
+  transition: all 1s; }
   @media (max-width: 420px) {
     .destinations__row {
       margin-top: 20px; } }
