@@ -20,10 +20,10 @@
                     </div>
                     <nav class="header-navigation">
                         <ul class="header-navigation__list">
-                            <li class="header-navigation__item">How it works</li>
-                            <li class="header-navigation__item">Plan Your Trip</li>
-                            <li class="header-navigation__item">Destinations</li>
-                            <li class="header-navigation__item">Travel Stories</li>
+                            <li class="header-navigation__item menu-link" data-goto=".preview">How it works</li>
+                            <li class="header-navigation__item menu-link" data-goto=".steps">Plan Your Trip</li>
+                            <li class="header-navigation__item menu-link" data-goto=".destinations">Destinations</li>
+                            <li class="header-navigation__item menu-link" data-goto=".stories">Travel Stories</li>
                         </ul>
                     </nav>
                     <div class="header__button">
@@ -32,6 +32,19 @@
                     <span class="hamburger">
                         <span class="hamburger__line"></span>
                     </span>
+                    <div class="hamburger-menu">
+                        <div class="close-icon"></div>
+                        <nav>
+                           <ul>
+                            <li><a class="menu-link" data-goto=".header" href="#">How It Works</a></li>
+                            <li><a class="menu-link" data-goto=".steps" href="#">Plan Your Trip</a></li>
+                            <li><a class="menu-link" data-goto=".destinations" href="#">Destinations</a></li>
+                            <li><a class="menu-link" data-goto=".stories" href="#">Travel Stories</a></li>
+                            <li><a class="menu-link" data-goto="" href="#">Account</a></li>
+                            <li><a class="menu-link" data-goto="" href="#">Social Media</a></li>
+                           </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </header>
