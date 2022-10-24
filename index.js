@@ -60,16 +60,26 @@ destinationSlider()
 const burgerBtn = document.querySelector('.hamburger')
 const hamburgerMenu = document.querySelector('.hamburger-menu')
 const closeBtn = document.querySelector('.close-icon')
-const addShadow = document.querySelector('.background-image')
+const overlay = document.querySelector('.menu-overlay')
+
 burgerBtn.onclick = (event) =>{
-    hamburgerMenu.classList.add('active')
-    document.body.classList.add('shadow-screen')
-    document.body.style.transition = '0.5s'
+    hamburgerMenu.classList.add('active');
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+}
+
+overlay.onclick = (event) => {
+    if (event.target != overlay) return;
+    closeMenu()
+    closePopupLogin()
 }
 
 const closeMenu = closeBtn.onclick = (event) =>{
-    hamburgerMenu.classList.remove('active')
-    document.body.classList.remove('shadow-screen')   
+    hamburgerMenu.classList.remove('active');
+    overlay.style.display = 'none';
+    document.body.style.overflow = 'visible';
+
 }
 
 const menuLinks = document.querySelectorAll('.menu-link[data-goto]');
@@ -94,3 +104,22 @@ if(menuLinks.length>0){
     }
 
 }
+
+const loginBtn = document.querySelector('.header__button')
+const popupLogin = document.querySelector('.login-pop-up')
+
+loginBtn.onclick = (event) => {
+    popupLogin.classList.add('active-login');
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    popupLogin.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
+}
+
+const closePopupLogin = overlay.onclick = (event) => {
+    popupLogin.classList.remove('active-login');
+    overlay.style.display = 'none';
+    document.body.style.overflow = 'visible';
+    popupLogin.style.boxShadow = 'none';
+
+}
+
