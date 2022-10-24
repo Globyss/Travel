@@ -69,7 +69,8 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
-  transition: 0.5s; }
+  transition: 0.5s;
+  position: fixed; }
   .shadow-screen:not(.hamburger-menu) {
     -webkit-filter: brightness(80%);
     filter: brightness(80%); }
@@ -442,7 +443,7 @@ body {
       display: -ms-flexbox;
       display: flex;
       position: absolute;
-      top: calc(50% - 12.5px);
+      top: 130px;
       width: 100%;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -511,7 +512,7 @@ body {
   @media (max-width: 420px) {
     .scroll-block {
       position: absolute;
-      bottom: 50px;
+      bottom: 72px;
       gap: 6px;
       left: calc(50% - 18px); } }
 

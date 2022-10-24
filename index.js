@@ -1,5 +1,6 @@
+const clientWidth = document.body.clientWidth
 function changeStoriesImages() {
-    if (document.body.clientWidth <= 420) {
+    if (clientWidth <= 420) {
         let imgs = document.body.getElementsByClassName('story-image')
         let i = 1
         for (let img of imgs) {
@@ -11,13 +12,18 @@ function changeStoriesImages() {
 changeStoriesImages()   
 
 function destinationSlider() {
-    let elem = document.querySelectorAll('.scroll-block__item')
-    let destinationsRow = document.querySelector('.destinations__row');
+    const elem = document.querySelectorAll('.scroll-block__item')
+    const destinationsRow = document.querySelector('.destinations__row');
+    const arrowScroll = document.querySelector('.scroll-arrows')
     elem[0].onclick = () => {
-        destinationsRow.style.transform = "translateX(830px)"
         elem[0].classList.add('scroll-block__item_colored') 
         elem[1].classList.remove('scroll-block__item_colored') 
-        elem[2].classList.remove('scroll-block__item_colored')    
+        elem[2].classList.remove('scroll-block__item_colored')  
+        if (clientWidth <= 420) {
+            destinationsRow.style.transform = "translateX(420px)"
+        } else {
+            destinationsRow.style.transform = "translateX(830px)"
+        }
     } 
     elem[1].onclick = () => {
         destinationsRow.style.transform = 'none'
@@ -26,13 +32,30 @@ function destinationSlider() {
         elem[2].classList.remove('scroll-block__item_colored') 
     }
     elem[2].onclick = () => {
-        destinationsRow.style.transform = "translateX(-830px)"
         elem[0].classList.remove('scroll-block__item_colored') 
         elem[1].classList.remove('scroll-block__item_colored') 
-        elem[2].classList.add('scroll-block__item_colored') 
+        elem[2].classList.add('scroll-block__item_colored')
+        if (clientWidth <= 420) {
+            destinationsRow.style.transform = "translateX(-420px)"
+        } else {
+            destinationsRow.style.transform = "translateX(-830px)" 
+        }
     }
+
+    // arrowScroll.onclick = (event) => {
+    //     console.log(event.target)
+    //     if (event.target != document.querySelector('.scroll-arrows__item')) return;
+    //     let imagePosition = window.getComputedStyle(destinationsRow, null);
+    //     if (event.target === document.querySelector('.scroll-arrows__item-left')){
+
+    //     }
+    // }
+
+   
 }
 destinationSlider()
+
+
 
 const burgerBtn = document.querySelector('.hamburger')
 const hamburgerMenu = document.querySelector('.hamburger-menu')
@@ -44,7 +67,7 @@ burgerBtn.onclick = (event) =>{
     document.body.style.transition = '0.5s'
 }
 
-closeBtn.onclick = (event) =>{
+const closeMenu = closeBtn.onclick = (event) =>{
     hamburgerMenu.classList.remove('active')
     document.body.classList.remove('shadow-screen')   
 }
@@ -57,6 +80,7 @@ if(menuLinks.length>0){
 
     function onMenuLinkClick(event){
         const menuLink = event.target;
+        closeMenu()
         if(menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)){
             const gotoBlock = document.querySelector(menuLink.dataset.goto);
             const gotoBlockValue = gotoBlock.getBoundingClientRect().top + window.pageYOffset;
